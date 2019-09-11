@@ -86,27 +86,20 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    title: 'My Favorite Dog is Scout',
+    date: 'Sep 10, 2019',
+    firstParagraph: 'One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What\'s happened to me?" he thought. It wasn\'t a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed',
+    secondParagraph: 'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! "Now fax quiz Jack!" my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig,',
+    thirdParagraph: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself',
+  },
 ];
-
-/*
-
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the
-  class 'article-open' on the 'article' div.
-
-  Step 3: return the entire component.
-
-  Step 4: Map over the data, creating a component for each object and add each component to the DOM
-  as children of the 'articles' div.
-
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh
-  the page to see the new article.
-
-*/
 
 const articleCreator = (articleData) => {
   const article = document.createElement('div');
   article.className = 'article';
-  document.querySelector('.articles').appendChild(article);
+  document.querySelector('.articles')
+    .appendChild(article);
 
   const title = document.createElement('h2');
   title.textContent = articleData.title;
@@ -117,7 +110,8 @@ const articleCreator = (articleData) => {
   date.textContent = articleData.date;
   article.appendChild(date);
 
-  const articleParagraphs = Object.keys(articleData).filter((key) => key.includes('Paragraph'));
+  const articleParagraphs = Object.keys(articleData)
+    .filter((key) => key.includes('Paragraph'));
   articleParagraphs.forEach((key) => {
     const articleParagraph = document.createElement('p');
     articleParagraph.textContent = articleData[key];
@@ -126,7 +120,16 @@ const articleCreator = (articleData) => {
 
   const expandButton = document.createElement('span');
   expandButton.className = 'expandButton';
+  expandButton.textContent = '\u25bc';
   article.appendChild(expandButton);
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+    if (expandButton.textContent === '\u25bc') {
+      expandButton.textContent = '\u25b2';
+    } else {
+      expandButton.textContent = '\u25bc';
+    }
+  });
 };
 
 data.map((article) => articleCreator(article));
