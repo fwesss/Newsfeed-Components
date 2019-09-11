@@ -127,10 +127,10 @@ const articleCreator = (articleData) => {
   date.textContent = articleData.date;
   article.appendChild(date);
 
-  const articleParagraphs = Object.keys(articleData).filter((key) => articleData[key].includes('Paragraph'));
-  Object.keys(articleParagraphs).forEach((key) => {
+  const articleParagraphs = Object.keys(articleData).filter((key) => key.includes('Paragraph'));
+  articleParagraphs.forEach((key) => {
     const articleParagraph = document.createElement('p');
-    articleParagraph.textContent = articleData[articleParagraphs[key]];
+    articleParagraph.textContent = articleData[key];
     article.appendChild(articleParagraph);
   });
 };
