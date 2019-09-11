@@ -95,6 +95,7 @@ const data = [
   },
 ];
 
+
 const articleCreator = (articleData) => {
   const article = document.createElement('div');
   article.className = 'article';
