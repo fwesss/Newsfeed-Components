@@ -140,14 +140,15 @@ const articleCreator = (articleData) => {
 
   expandButton.addEventListener('click', () => {
     if (article.classList.contains('article-open')) {
-      expandButton.textContent = 'Click to Close';
+      expandButton.textContent = 'Click to Expand';
       article.classList.toggle('article-open');
       article.classList.toggle('article-closed');
     } else if (article.classList.contains('article-closed')) {
-      expandButton.textContent = 'Click to Expand';
+      expandButton.textContent = 'Click to Close';
       article.classList.toggle('article-closed');
       article.classList.toggle('article-open');
     } else {
+      expandButton.textContent = 'Click to Close';
       article.classList.toggle('article-open');
     }
   });
