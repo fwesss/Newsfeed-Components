@@ -12,7 +12,7 @@ const menuItems = [
 
 const createMenu = (items) => {
   const menu = document.createElement('div');
-  menu.className = 'menu';
+  menu.classList.add('menu', 'menu--closed');
   document.querySelector('.header').appendChild(menu);
 
   const menuList = document.createElement('ul');
@@ -26,6 +26,7 @@ const createMenu = (items) => {
 
   document.querySelector('.menu-button').addEventListener('click', () => {
     menu.classList.toggle('menu--open');
+    menu.classList.toggle('menu--closed');
   });
 
   return menu;
