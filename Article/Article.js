@@ -102,14 +102,17 @@ const articleCreator = (articleData) => {
   document.querySelector('.articles')
     .appendChild(article);
 
+
   const title = document.createElement('h2');
   title.textContent = articleData.title;
   article.appendChild(title);
+
 
   const date = document.createElement('p');
   date.className = 'date';
   date.textContent = articleData.date;
   article.appendChild(date);
+
 
   const articleParagraphs = Object.keys(articleData)
     .filter((key) => key.includes('Paragraph'));
@@ -119,10 +122,22 @@ const articleCreator = (articleData) => {
     article.appendChild(articleParagraph);
   });
 
+
+  const closeButton = document.createElement('button');
+  closeButton.className = 'close';
+  closeButton.textContent = 'X';
+  article.appendChild(closeButton);
+
+  closeButton.addEventListener('click', () => {
+    article.remove();
+  });
+
+
   const expandButton = document.createElement('span');
   expandButton.className = 'expandButton';
   expandButton.textContent = 'Click to Expand';
   article.appendChild(expandButton);
+
   expandButton.addEventListener('click', () => {
     if (article.classList.contains('article-open')) {
       expandButton.textContent = 'Click to Close';
