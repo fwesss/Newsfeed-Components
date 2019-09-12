@@ -121,14 +121,19 @@ const articleCreator = (articleData) => {
 
   const expandButton = document.createElement('span');
   expandButton.className = 'expandButton';
-  expandButton.textContent = '\u25bc';
+  expandButton.textContent = 'Click to Expand';
   article.appendChild(expandButton);
   expandButton.addEventListener('click', () => {
-    article.classList.toggle('article-open');
-    if (expandButton.textContent === '\u25bc') {
-      expandButton.textContent = '\u25b2';
+    if (article.classList.contains('article-open')) {
+      expandButton.textContent = 'Click to Close';
+      article.classList.toggle('article-open');
+      article.classList.toggle('article-closed');
+    } else if (article.classList.contains('article-closed')) {
+      expandButton.textContent = 'Click to Expand';
+      article.classList.toggle('article-closed');
+      article.classList.toggle('article-open');
     } else {
-      expandButton.textContent = '\u25bc';
+      article.classList.toggle('article-open');
     }
   });
 };

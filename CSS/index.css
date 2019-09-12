@@ -74,7 +74,26 @@
   cursor: pointer;
 }
 .article-open {
-  height: 400px;
+  animation: articleOpen 0.5s both;
+}
+.article-closed {
+  animation: articleClose 0.5s both;
+}
+@keyframes articleOpen {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 400px;
+  }
+}
+@keyframes articleClose {
+  from {
+    height: 400px;
+  }
+  to {
+    height: 50px;
+  }
 }
 .menu-button {
   position: absolute;
