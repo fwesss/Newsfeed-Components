@@ -12,7 +12,7 @@ const menuItems = [
 
 const createMenu = (items) => {
   const menu = document.createElement('div');
-  menu.classList.add('menu', 'menu--closed');
+  menu.className = 'menu';
   document.querySelector('.header').appendChild(menu);
 
   const menuList = document.createElement('ul');
@@ -25,8 +25,15 @@ const createMenu = (items) => {
   });
 
   document.querySelector('.menu-button').addEventListener('click', () => {
-    menu.classList.toggle('menu--open');
-    menu.classList.toggle('menu--closed');
+    if (menu.classList.contains('menu--open')) {
+      menu.classList.toggle('menu--open');
+      menu.classList.toggle('menu--closed');
+    } else if (menu.classList.contains('menu--closed')) {
+      menu.classList.toggle('menu--closed');
+      menu.classList.toggle('menu--open');
+    } else {
+      menu.classList.add('menu--open');
+    }
   });
 
   return menu;
