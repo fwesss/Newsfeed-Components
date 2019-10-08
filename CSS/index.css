@@ -1,0 +1,155 @@
+/* This line is importing the font 'Roboto'. DO NOT change line 2*/
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+/* Below this line is where you will start your work */
+/* It is important to note, you will not be writing any CSS in this file*/
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 75px;
+  color: white;
+  background-color: #388e3c;
+}
+.header h1 {
+  margin: 0;
+  font-size: 48px;
+}
+.articles {
+  margin-top: 95px;
+}
+.article {
+  position: relative;
+  height: 50px;
+  margin: 20px 10%;
+  padding: 0 20px 25px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px lightgrey;
+}
+.article h2 {
+  margin: 15px 0 0;
+  padding: 0;
+  font-size: 28px;
+}
+.article .date {
+  margin: 0;
+  font-size: 14px;
+}
+.article .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.article .expandButton {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  color: grey;
+  font-size: 12px;
+  background-color: white;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+.article-open {
+  animation: articleOpen 0.5s both;
+}
+.article-closed {
+  animation: articleClose 0.5s both;
+}
+@keyframes articleOpen {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 400px;
+  }
+}
+@keyframes articleClose {
+  from {
+    height: 400px;
+  }
+  to {
+    height: 50px;
+  }
+}
+.menu-button {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+.menu {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  z-index: 2;
+  /* This set the layer level of the element, it has precendence over initial level of 1*/
+  display: none;
+  width: 350px;
+  height: 100vh;
+  /* This give the height 100% of the screen or, '100% of View Height' */
+  background-color: #81c784;
+  border: 1px solid #004d40;
+  border-bottom: none;
+  border-left: none;
+}
+.menu ul li {
+  padding: 30px 0;
+  font-size: 32px;
+  text-align: center;
+  list-style-type: none;
+}
+.menu--open {
+  display: block;
+  animation: slidein 0.5s both;
+}
+.menu--closed {
+  display: block;
+  animation: slideout 0.5s both;
+}
+@keyframes slidein {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #fffef7;
+}
+/*# sourceMappingURL=index.css.map */
